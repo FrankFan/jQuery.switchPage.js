@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面切换</title>
+	<style type="text/css">
+		h1,body,html{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			font-family: Arial,"Microsoft YaHei","Hiragino Sans GB", sans-sarif;
+		}
+		h1{
+			font-size: 6em;
+			font-weight: normal;
+		}
+		p{
+			font-size: 2em;
+			margin: 0.5em 0 2em 0;
+		}
+		html,body{
+			height: 100%;
+			overflow: hidden;
+		}
+		#container, section{
+			height: 100%;
+		}
+		#section1,
+		#section2,
+		#section3,
+		#section4{
+			background-color: #000;
+			background-size: cover;
+			background-position: 50% 50%;
+		}
+		#section1{
+			background-image: url(images/1.jpg);
+		}
+		#section2{
+			background-image: url(images/2.jpg);
+		}
+		#section3{
+			background-image: url(images/3.jpg);
+		}
+		#section4{
+			background-image: url(images/4.jpg);
+		}
+		/*.left{
+			float: left;
+		}
+		#container{
+			width: 400%;
+		}
+		section{
+			width: 25%;
+		}*/
+		#pages{
+			position:fixed;
+			right: 10px;
+			top: 50%;
+			list-style: none;
+		}
+		#pages li{
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #fff;
+			margin: 0 0 10px 5px;
+		}
+		#pages li.active{
+			width: 14px;
+			height: 14px;
+			border: 2px solid #FFFE00;
+			background: none;
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<section id="section1"></section>
+		<section id="section2"></section>
+		<section id="section3"></section>
+		<section id="section4"></section>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="jQuery.switchPage.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#container").switchPage({
+				'loop' : true,
+				'keyboard' : true,
+				'direction' : 'vertical'
+			});
+		});
+	</script>
+</body>
+</html>
