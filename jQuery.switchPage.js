@@ -76,7 +76,6 @@
 		var dest = element.position();
 		console.log(dest.top, dest.left);
 		if (typeof dest === 'undefined') {
-			console.info('dest == undefined');
 			return;
 		}
 		initEffects(dest, element);
@@ -143,11 +142,8 @@
 	function initEffects(dest, element) {
 		var transform  = ['-webkit-transform', '-ms-transform', '-moz-transform', 'transform'],
 			transition = ['-webkit-transition', '-ms-transition', '-moz-transition', 'transition'];
-
-// var dest = element.position(); // test for debugging
 			
 		canScroll = false;
-		console.log('dest.top', dest.top, 'canScroll:', canScroll);
 		// 如果浏览器支持CSS3动画，就用CSS3渲染
 		if(isSupportCss(transform) && isSupportCss(transition)) {
 			var translate = '';
