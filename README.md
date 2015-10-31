@@ -51,3 +51,8 @@ $.fn.foo = function() {
 })(jQuery);
 
 ```
+
+
+## preview
+
+[https://cdn.rawgit.com/FrankFan/jQuery.switchPage.js/master/index.html](https://cdn.rawgit.com/FrankFan/jQuery.switchPage.js/master/index.html)
