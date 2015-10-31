@@ -30,7 +30,6 @@
 
 		sections.each(function() {
 			arrElement.push($(this));
-			console.log($(this));
 		});
 
 		// 链式调用 返回this对象
@@ -74,7 +73,6 @@
 	// 页面滚动事件
 	function scrollPage(element) {
 		var dest = element.position();
-		console.log(dest.top, dest.left);
 		if (typeof dest === 'undefined') {
 			return;
 		}
@@ -157,7 +155,6 @@
 				'transform': 'translate3d(' + translate + ')'
 			});
 			container.on('webkitTransitionEnd msTransitionend mozTransitionend transitionend', function() {
-				console.log('transitionend');
 				canScroll = true;
 			});
 		} else {
