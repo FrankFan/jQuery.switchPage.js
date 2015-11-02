@@ -10,19 +10,17 @@
 		'duration': 1000, // 每次动画执行时间
 		'pagination': true, // 是否显示分页
 		'loop': false, // 是否循环
-		'keyborad': true,  // 是否支持键盘
+		'keyboard': true,  // 是否支持键盘
 		'direction': 'vertical' // 页面切换方向 horizontal, vertical
 	};
 
-	var win = $(window),
-		container, sections;
-
-	var opts = {},
-		canScroll = true;
-
-	var iIndex = 0;
-
-	var arrElement = [];
+	var win = $(window)
+		, container
+		, sections
+		, opts = {}
+		, canScroll = true
+		, iIndex = 0
+		, arrElement = [];
 
 	var SP = $.fn.switchPage = function(options) {
 		opts = $.extend({}, defaults, options || {});
@@ -32,6 +30,7 @@
 
 		sections.each(function() {
 			arrElement.push($(this));
+			console.log($(this));
 		});
 
 		// 链式调用 返回this对象
@@ -75,7 +74,11 @@
 	// 页面滚动事件
 	function scrollPage(element) {
 		var dest = element.position();
-		if(typeof dest === 'undefined') { return; }
+		console.log(dest.top, dest.left);
+		if (typeof dest === 'undefined') {
+			console.info('dest == undefined');
+			return;
+		}
 		initEffects(dest, element);
 	}
 
@@ -141,7 +144,10 @@
 		var transform  = ['-webkit-transform', '-ms-transform', '-moz-transform', 'transform'],
 			transition = ['-webkit-transition', '-ms-transition', '-moz-transition', 'transition'];
 
+// var dest = element.position(); // test for debugging
+			
 		canScroll = false;
+		console.log('dest.top', dest.top, 'canScroll:', canScroll);
 		// 如果浏览器支持CSS3动画，就用CSS3渲染
 		if(isSupportCss(transform) && isSupportCss(transition)) {
 			var translate = '';
@@ -155,6 +161,7 @@
 				'transform': 'translate3d(' + translate + ')'
 			});
 			container.on('webkitTransitionEnd msTransitionend mozTransitionend transitionend', function() {
+				console.log('transitionend');
 				canScroll = true;
 			});
 		} else {
@@ -201,7 +208,7 @@
 		if(iIndex) {
 			paginationHandler();
 			var currentElement = arrElement[iIndex],
-				dest = currentElement.position;
+				dest = currentElement.position();
 			initEffects(dest, currentElement);
 		}
 	}
