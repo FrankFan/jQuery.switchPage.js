@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>页面切换</title>
+	<title>页面全屏切换Demo</title>
 	<style type="text/css">
 		h1,body,html{
 			padding: 0;
@@ -86,14 +86,14 @@
 		<section id="section4"></section>
 	</div>
 
-	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="jQuery.switchPage.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$("#container").switchPage({
 				'loop' : true,
 				'keyboard' : true,
-				'direction' : 'vertical'
+				'direction' : 'vertical' // vertical | horizontal
 			});
 		});
 	</script>
